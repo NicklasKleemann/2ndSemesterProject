@@ -1,7 +1,22 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  button(onClick = 'Helloworld()') Click mig 
-  button(onClick = 'alert(Hello world)') CLICK DENNE FUNKTION HAHA
+  header
+    h1.logo Welcome to #{title}
+      nav
+        ul
+          li
+            a(href='#') Home
+          li
+            a(href='#') About
+          li
+            a(href='#') Contact
+  main
+      article
+        h2 Welcome to My Beautiful Website
+        p cyka blyat
+      article
+        h2 Our Team
+        p cyka blyat
+  footer
+      p © 2023 My Beautiful Website. All rights reserved.
