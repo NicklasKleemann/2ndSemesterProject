@@ -5,4 +5,14 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(type='text/javascript', src ='/javascripts/script.js')
   body
+    header
+      h1.logo #{title}
+        nav
+          ul
+            li
+              a(href='Home') Home
+            li
+              a(href='FAQ') FAQ PAGE
+            li
+              a(href='') Contact
     block content
