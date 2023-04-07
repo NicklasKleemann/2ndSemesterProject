@@ -6,27 +6,34 @@ html(lang='en')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css', integrity='sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M', crossorigin='anonymous')
     script(src='https://www.google.com/recaptcha/api.js')
+    script(type='text/javascript', src='/javascripts/captchaPage.js')
     title captcha form
+    style. 
+      body {
+        background-color: #f2f2f2; 
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      #captchaform {
+        display: flex;
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center;
+      }
+      
   body
     .container
-      h1 Captcha
       form#captchaform
         .form-group
           .g-recaptcha(data-sitekey='6LdpvDEUAAAAAMy8x0y8PS99j4BavfO2oBdVTQGZ')
         input.btn.btn-primary(type='submit', value='Submit')
-    script.
-      document.getElementById('captchaform').addEventListener('submit', e => {
-      e.preventDefault();
-      const captcha = document.querySelector('#g-recaptcha-response').value;
-      return fetch('/gethomepage', {
-      method: 'POST',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify({captcha })
-      })
-      .then(res => res.json())
-      .then(data => {
-      console.log(data);
-      alert(data.msg);
-      if (data.success) return location.reload();
-      });
-      });
+   
+      
+
+      

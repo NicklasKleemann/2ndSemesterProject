@@ -39,7 +39,7 @@ app.post('/gethomepage', async (req, res) => {
     return res.json({ success: false, msg: 'Failed captcha verification' });
 
   // If successful
-  return res.json({ success: true, msg: 'Captcha passed' });
+  return res.json({ success: true, msg: '' });
 });
 
 
