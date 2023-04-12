@@ -5,12 +5,13 @@ block content
       article
         h2 Welcome to cyka blyat
         p cyka blyatcyka blyatcyka blyatcyka blyatcyka blyatcyka blyatcyka blyatcyka blyatcyka blyatcyka blyatcyka blyat
-        <label for="YourEhr">Your Electronic Health Record:</label>
-        <input type="text" id="YourEhr" name="YourEhr"><br><br>
+        div.container
+          textarea.input(id="input-text" placeholder="Input Your EHR here...")
         button.button(onClick = 'Helloworld()') HEJSA 
         p cyka blyatcyka blyatcyka blyatcyka blyatcyka blyatcyka blyatcyka blyatcyka blyatcyka blyatcyka blyatcyka blyat
-        <label for="TransEhr">Translated Electronic Health Record:</label>
-        <input type="text" id="TransEhr" name="TransEhr"><br><br>
+        div.container
+          button.button2(onclick="outputText()") Translate
+          div.output(id="output-area")
         button.button2(onClick = 'Helloworld()') HEJSA 
         
       article
