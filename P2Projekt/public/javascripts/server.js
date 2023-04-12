@@ -1,10 +1,10 @@
 let star_reviews = [];
 
-var button3 = document.getElementById("button3");
+const btn = document.getElementById('button3');
 
-//button3.addEventListener("click", addStarReview);
+btn.addEventListener("click", addStarReview);
 
-console.log(button3);
+console.log(btn);
 
 function addStarReview() {
     console.log(star_reviews);
