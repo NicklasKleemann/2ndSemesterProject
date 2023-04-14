@@ -1,6 +1,5 @@
 var createError = require('http-errors');
 var express = require('express');
-var http = require('http');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -12,11 +11,6 @@ var usersRouter = require('./routes/FAQ');
 var captchaRouter = require('./routes/captcha');
 
 var app = express();
-const server = http.createServer(app);
-
-server.listen(5000, () => {
-  console.log(`Express server started on http://localhost:${server.address().port}`);
-});
 
 app.use(express.json());
 
@@ -78,4 +72,3 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-
