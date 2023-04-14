@@ -1,7 +1,7 @@
 let star_reviews = [];
 
 document.addEventListener('DOMContentLoaded', function () {
-    const btn = document.getElementById('button3');
+    const btn = document.getElementById('star-review');
 
     btn.addEventListener("click", addStarReview);
 
