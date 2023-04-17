@@ -1,4 +1,21 @@
 extends layout 
 
 block content 
+    div(class="header-wrapper")
+        header(class="fixed-top d-flex align-items-center")
+
+            div(class="container d-flex justify-content-between")
+
+                div(class='logo')
+                    h3 FAQ page
+
+                nav(class='navbar')
+                    ul
+                        li
+                            a(class='nav-link scrollto' href='home') Home
+                        li
+                            a(class='nav-link scrollto' href='#about') About
+                        li
+                            a(class='nav-link scrollto active' href='#FAQ') FAQ
+
     h1.logo HELLO WORLD, THIS IS THE FAQ PAGE
