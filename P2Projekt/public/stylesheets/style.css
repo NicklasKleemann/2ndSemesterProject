@@ -1,28 +1,282 @@
 /* Reset styles */
+/*
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+*/
 
-/* Global styles */
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+html{
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333;
+  background-color: white;
+  color: #444;
+  font-family: "Open Sans", sans-serif;
 }
 
 a {
-  color: #0077cc;
+  color: #007bff;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+a:hover,
+a:active
+a:focus{
+  color: #71859a;
+  outline: none;
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+p{
+  padding: 0;
+  margin: 0 0 30px 0;
 }
 
-/* Header styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+
+header{
+  height: 80px;
+  z-index: 997;
+  transition: all 0.5s;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.3);
+}
+
+header.header-scrolled{
+  height: 60px;
+}
+
+.logo {
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: #285f9a;
+  margin-top: 10px;
+}
+
+@media (max-width: 991px) {
+  #header .logo h1 {
+    font-size: 28px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+.navbar {
+  padding: 0;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar a,
+.navbar a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0 10px 30px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  color: #004289;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.navbar a i,
+.navbar a:focus i {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: 5px;
+}
+
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover>a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.navbar .dropdown ul {
+  display: block;
+  position: absolute;
+  left: 14px;
+  top: calc(100% + 30px);
+  margin: 0;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: 0.3s;
+}
+
+.navbar .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar .dropdown ul a {
+  padding: 10px 20px;
+  font-size: 14px;
+  text-transform: none;
+}
+
+.navbar .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar .dropdown ul a:hover,
+.navbar .dropdown ul .active:hover,
+.navbar .dropdown ul li:hover>a {
+  color: #007bff;
+}
+
+.navbar .dropdown:hover>ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
+
+@media (max-width: 1366px) {
+  .navbar .dropdown .dropdown ul {
+    left: -90%;
+  }
+
+  .navbar .dropdown .dropdown:hover>ul {
+    left: -100%;
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections
+--------------------------------------------------------------*/
+.section-one{
+  margin-top: 120px;
+  margin-left: 20px;
+}
+
+.about{
+  text-align: center;
+}
+
+.input-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.output-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.input {
+  width: 500px;
+  height: 250px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  resize: none;
+}
+
+.output {
+  width: 500px;
+  height: 250px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 16px;
+  overflow-y: auto;
+} 
+
+.reviews{
+  margin-top: 100px;
+  margin-left: 20px;
+}
+
+/*--------------------------------------------------------------
+# Buttons
+--------------------------------------------------------------*/
+.button{
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  background-color: #0077cc;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #005ea6;
+}
+
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+footer {
+  background: #00428a;
+  padding: 0 0 30px 0;
+  color: #eee;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  height: 100px;
+  vertical-align: middle;
+  line-height: 100px;
+}
+
+
+
+
+
+
+
+/* Header styles
 header {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -35,7 +289,7 @@ header {
   color: #333;
 }
 
-/* Navigation styles */
+ Navigation styles 
 nav {
   display: flex;
   justify-content: space-between;
@@ -59,16 +313,16 @@ nav ul li:first-child {
 nav a {
   font-weight: bold;
 }
-
+*/
 /* Main content styles */
-main {
+/*main {
   max-width: 800px;
   margin: 0 auto;
   padding: 40px 20px;
-}
-
+}*/
+/*
 article {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 article h2 {
@@ -81,15 +335,15 @@ article p {
   margin-bottom: 20px;
 }
 
-/* Footer styles */
+/* Footer styles 
 footer {
-  background-color: #333;
+  background-color: #00428a;
   color: #fff;
   padding: 20px;
   text-align: center;
 }
 
-/* Primary button */
+Primary button 
 .button {
   display: inline-block;
   padding: 10px 20px;
@@ -109,7 +363,7 @@ footer {
   background-color: #005ea6;
 }
 
-/* Secondary button */
+/* Secondary button 
 .button2 {
   display: inline-block;
   padding: 10px 20px;
@@ -130,7 +384,7 @@ footer {
   color: #fff;
 }
 
-/* Tertiary button */
+/* Tertiary button 
 .button3 {
   display: inline-block;
   padding: 10px 20px;
@@ -151,7 +405,7 @@ footer {
   text-decoration: underline;
 }
 
-/* Media queries */
+/* Media queries 
 @media (max-width: 600px) {
   nav {
     flex-direction: column;
@@ -193,4 +447,4 @@ footer {
   padding: 10px;
   font-size: 16px;
   overflow-y: auto;
-}
+} 
