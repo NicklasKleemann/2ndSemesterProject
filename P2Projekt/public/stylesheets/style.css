@@ -51,6 +51,10 @@ h6 {
   padding: 0;
 }
 
+div:empty::before {
+  content:attr(data-placeholder);
+  color:gray
+}
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -185,6 +189,9 @@ header.header-scrolled{
   top: 100%;
   visibility: visible;
 }
+.function-wrapper {
+  display: flex;
+}
 
 @media (max-width: 1366px) {
   .navbar .dropdown .dropdown ul {
@@ -229,6 +236,24 @@ header.header-scrolled{
   align-items: center;
 }
 
+.input-area-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.input-area-container:hover {
+  border: 1px solid black;
+}
+
+.input-area-container:focus-within {
+  border: 2px solid black;
+}
+
+
+
 .output-box{
   display: flex;
   flex-direction: column;
@@ -241,6 +266,7 @@ header.header-scrolled{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 
 .output-buttons-wrapper {
@@ -248,22 +274,45 @@ header.header-scrolled{
   justify-content: space-between;
 }
 
+.output-area-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.copy-message {
+  padding-left: 2px;
+}
+
+.copy-wrapper {
+  display: flex;
+}
+
+
 .input {
   margin-bottom: 10px;
   width: 500px;
   height: 250px;
-  border: 1px solid #ccc;
-  padding: 10px;
+  padding-right: 5px;
   font-size: 16px;
   resize: none;
+  border: none;
 }
 
+.input:focus {
+  outline:none
+}
+
+
+
 .output {
+  padding-right: 5px;
   width: 500px;
   height: 250px;
-  border: 1px solid #ccc;
-  padding: 10px;
   font-size: 16px;
+  flex-grow: 1;
   overflow-y: auto;
 } 
 
@@ -335,6 +384,153 @@ header.header-scrolled{
   background-color: #ff5722;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
+}
+
+.copy-text-button {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  height: 10%;
+  padding: 4px 4px 4px 4px;
+}
+
+.copy-text-button:hover {
+  background-color: #ccc;
+  transition: all 0.1s ease-in-out;
+}
+
+.paste-text-button {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  height: 10%;
+  padding: 4px 4px 4px 4px;
+}
+
+.paste-text-button:hover {
+  background-color: #ccc;
+  transition: all 0.1s ease-in-out;
+}
+
+
+/*--------------------------------------------------------------
+# Reviews
+--------------------------------------------------------------*/
+.testimonials-clean {
+  color:#313437;
+  background-color:#eef4f7;
+}
+
+.testimonials-clean p {
+  color:#7d8285;
+}
+
+.testimonials-clean h2 {
+  font-weight:bold;
+  margin-bottom:40px;
+  padding-top:40px;
+  color:inherit;
+}
+
+@media (max-width:767px) {
+  .testimonials-clean h2 {
+    margin-bottom:25px;
+    padding-top:25px;
+    font-size:24px;
+  }
+}
+
+.testimonials-clean .intro {
+  font-size:16px;
+  max-width:500px;
+  margin:0 auto;
+}
+
+.testimonials-clean .intro p {
+  margin-bottom:0;
+}
+
+.testimonials-clean .people {
+  padding:50px 0 20px;
+}
+
+.testimonials-clean .item {
+  margin-bottom:32px;
+}
+
+@media (min-width:768px) {
+  .testimonials-clean .item {
+    height:220px;
+  }
+}
+
+.testimonials-clean .item .box {
+  padding:30px;
+  background-color:#fff;
+  position:relative;
+}
+
+.testimonials-clean .item .box:after {
+  content:'';
+  position:absolute;
+  left:30px;
+  bottom:-24px;
+  width:0;
+  height:0;
+  border:15px solid transparent;
+  border-width:12px 15px;
+  border-top-color:#fff;
+}
+
+.testimonials-clean .item .author {
+  margin-top:28px;
+  padding-left:25px;
+}
+
+.testimonials-clean .item .name {
+  font-weight:bold;
+  margin-bottom:2px;
+  color:inherit;
+}
+
+.testimonials-clean .item .title {
+  font-size:13px;
+  color:#9da9ae;
+}
+
+.testimonials-clean .item .description {
+  font-size:15px;
+  margin-bottom:0;
+}
+/*--------------------------------------------------------------
+# Google Maps
+--------------------------------------------------------------*/
+.google-clean {
+  color:#313437;
+  background-color:#ffffff;
+  padding-bottom: 50px;
+}
+
+.google-clean p {
+  color:#7d8285;
+}
+
+.google-clean h2 {
+  font-weight:bold;
+  margin-bottom:40px;
+  padding-top:40px;
+  color:inherit;
+}
+
+.google-center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
 }
 
 /*--------------------------------------------------------------
