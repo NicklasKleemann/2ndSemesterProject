@@ -5,6 +5,7 @@ block content
     script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js")
     script(src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js")
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js")
+    
 
     div(class="header-wrapper fixed-top")
       header(class="fixed-top d-flex align-items-center")
@@ -12,7 +13,7 @@ block content
         div(class="container d-flex justify-content-between")
 
           div(class='logo')
-            h3 Electronic Health Record Translaton
+            h3 Electronic Health Record Translation
 
           nav(class='navbar')
             ul
@@ -23,8 +24,9 @@ block content
               li
                 a(class='nav-link scrollto' href='FAQ') FAQ
               li(class='dropdown')
-                a(href='#functions')
+                a(href='#functions' class="function-wrapper")
                   span Functions
+                  <span class="material-icons">keyboard_arrow_down</span>
                   i(class='bi bi-chevron-down')
                 ul
                   li
@@ -35,30 +37,78 @@ block content
                     a(href='#') Function 3
                   li 
                     a(href='#') Function 4
+                
     main 
       div(class="main-column")
         article(class="section-one")
           div(class="about")
             h2(id="about") About
             p Insert your medical journal and get a simplified version
+
           div(class="input-wrapper")
             div(class="input-box")
               h5 Your EHR
-              textarea.input(id="input-text" placeholder="Input Your EHR here...")
-            
+              div(class="input-area-container paste-area-container")
+                textarea.input(class="paste-area-field" id="input-text" placeholder="Input Your EHR here...")
+                button(type="text" class="paste-text-button")
+                  <span class="material-icons">content_paste</span>
             button.button(onclick="outputText()") Translate
+
           div(class="output-wrapper")
             div(class="output-box")
               h5 Translated EHR
-              div.output(id="output-area")
-              div(class="output-buttons-wrapper")
+              div(class="output-area-container copy-area-container")
+                div.output(id="output-area" class="copy-area-field" data-placeholder="Rephrased EHR will appear here")
+                div(class="copy-wrapper")
+                  button(type="text" class="copy-text-button")
+                    <span class="material-icons">content_copy</span>
+                  div(class="copy-message")
+            div(class="output-buttons-wrapper")
                 button.button(onClick = 'Helloworld()' id="functions") Function 1   
                 button.button(onClick = 'Helloworld()') Function 2
           
         article(class="reviews")
-          h2 Reviews
-          p How many stars would you like to give our service?
+          h2 Rate us!
+          p Let us know how your experience was with the service
           button(class='button' onClick = 'Helloworld()') Send
+
+      div(class="testimonials-clean")
+        div(class="container")
+          div(class="intro")
+            h2(class="text-center") Reviews
+            p(class="text-center") Our customers love us! Read what they have to say below
+          div(class="row people")
+
+            div(class="col-md-6 col-lg-4 item")
+              div(class="box")
+                p(class="description") Great service! Now I finally understand my medical journal.
+              div(class="author")
+                img(src="assets/img/testimonial-1.jpg" class="rounded-circle" width="50" height="50", alt="")
+                h5(class="name") Ben Johnson 
+                p(class="title") CEO of Company Inc.
+
+            div(class="col-md-6 col-lg-4 item")
+              div(class="box")
+                p(class="description") This is a life changer! It's easy and free to use at no additional cost.
+              div(class="author")
+                img(src="assets/img/testimonial-2.jpg" class="rounded-circle" width="50" height="50", alt="")
+                h5(class="name") Kate Oxwell 
+                p(class="title") CEO of Company Inc.
+
+            div(class="col-md-6 col-lg-4 item")
+              div(class="box")
+                p(class="description") Excellent! Before I didn't understand what my doctor had written, but it all changed after applying my journal into this service!
+              div(class="author")
+                img(src="assets/img/testimonial-3.jpg" class="rounded-circle" width="50" height="50", alt="")
+                h5(class="name") Sam Hemmington 
+                p(class="title") CEO of Company Inc.
+                
+      div(class="google-clean")
+        div(class="container")
+          div(class="intro")
+            h2(class="text-center") Doctors Near You
+            p(class="text-center") Please consult your doctor for personalized medical advice
+        iframe(class="google-center" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d72017.49225762476!2d12.580984394433964!3d55.66209399096154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465254cc41a8fd2d%3A0xd696b26b50d87bd!2zTMOmZ2VybmU!5e0!3m2!1sda!2sdk!4v1681814207575!5m2!1sda!2sdk", frameborder="0" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade")
         
       footer
           p © P2 Projekt 2023. All Rights Reserved
