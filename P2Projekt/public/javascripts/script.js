@@ -21,7 +21,6 @@ function TextPromptToAI(prompt) {
 
     // add API stuff here 
 
-
     //prints the returned text from the API in a textbox on the website
     document.getElementById("output-area").innerText = inputText; //change this accordingly.
 }
