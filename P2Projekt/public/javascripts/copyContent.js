@@ -30,7 +30,7 @@
         pasteButton.addEventListener("click", () => {
           navigator.clipboard.readText().then(clipText => {
             console.log("Text pasted");
-            textField.value += clipText;
+            textField.value = clipText;
           }).catch(error => {
             console.error("Error pasting text: ", error);
           })
