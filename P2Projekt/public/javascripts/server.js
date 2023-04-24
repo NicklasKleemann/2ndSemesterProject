@@ -1,14 +1,18 @@
-let star_reviews = [];
-
 document.addEventListener('DOMContentLoaded', function () {
-    const btn = document.getElementById('star-review');
+    const like = document.getElementById('like');
+    const dislike = document.getElementById('dislike');
 
-    btn.addEventListener("click", addStarReview);
+    like.addEventListener("click", function (e) {
+        e.preventDefault();
+        $('.active').removeClass('active');
+        $(this).addClass('active');
+        console.log("like");
+    });
 
-    console.log(btn);
-
-    function addStarReview() {
-        console.log(star_reviews);
-        star_reviews.push("5");
-    }
+    dislike.addEventListener("click", function (e) {
+        e.preventDefault();
+        $('.active').removeClass('active');
+        $(this).addClass('active');
+        console.log("dislike");
+    });
 });

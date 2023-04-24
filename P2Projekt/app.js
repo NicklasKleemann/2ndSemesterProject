@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const fetch = require('node-fetch');
 const { stringify } = require('querystring')
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/FAQ');
@@ -70,5 +72,26 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// Set up mongoose connection
+app.use(bodyParser.urlencoded({ extended: true }));
+mongoose.connect("mongodb+srv://thomaslunoe:Nuggi2001@cluster0.xsccqqr.mongodb.net/?retryWrites=true", { useNewUrlParser: true }, { useUnifiedTopology: true })
+
+//schema
+var reviewSchema = new mongoose.Schema({
+  title: String,
+  content: String
+});
+
+var review = mongoose.model("review", reviewSchema);
+
+app.post("", function (req, res) {
+  let newReview = new review({
+    title: req.body.title,
+    content: req.body.content
+  })
+  newReview.save();
+});
+
 
 module.exports = app;

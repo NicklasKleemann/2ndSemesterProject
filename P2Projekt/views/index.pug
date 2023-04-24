@@ -67,9 +67,17 @@ block content
                 button.button(onClick = 'Helloworld()') Function 2
           
         article(class="reviews")
-          h2 Rate us!
-          p Let us know how your experience was with the service
-          button(class='button' onClick = 'Helloworld()') Send
+          h2.align.center Rate us!
+          p How was your experience?
+          <form class = "container" method="post" action="">
+            <div class="form-group">
+              <input class = "form-control" name="title">
+            </div>
+            <div class="form-group">
+              <textarea class = "form-control" name="content"></textarea>
+            </div>
+            <button>add to mongodb</button>
+          </form>
 
       div(class="testimonials-clean")
         div(class="container")
