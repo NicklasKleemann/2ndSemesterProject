@@ -5,10 +5,13 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const fetch = require('node-fetch');
 const { stringify } = require('querystring')
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/FAQ');
 var captchaRouter = require('./routes/captcha');
+
 
 var app = express();
 
@@ -70,5 +73,14 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// Set up mongoose connection
+mongoose.set("strictQuery", false);
+const mongoDB = "mongodb+srv://thomaslunoe:Nuggi2001@cluster0.xsccqqr.mongodb.net/?retryWrites=true&w=majority";
+
+main().catch((err) => console.log(err));
+async function main() {
+  await mongoose.connect(mongoDB);
+}
 
 module.exports = app;

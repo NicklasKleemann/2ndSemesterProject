@@ -10,7 +10,7 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -27,14 +27,13 @@ a {
 }
 
 a:hover,
-a:active
-a:focus{
+a:active a:focus {
   color: #71859a;
   outline: none;
   text-decoration: none;
 }
 
-p{
+p {
   padding: 0;
   margin: 0 0 30px 0;
 }
@@ -52,13 +51,14 @@ h6 {
 }
 
 div:empty::before {
-  content:attr(data-placeholder);
-  color:gray
+  content: attr(data-placeholder);
+  color: gray
 }
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-.header-wrapper{
+.header-wrapper {
   width: 100%;
   height: 80px;
   background: #fff;
@@ -66,13 +66,13 @@ div:empty::before {
   transition: all 0.5s;
 }
 
-header{
+header {
   height: 80px;
   max-width: 1903px;
   z-index: 997;
 }
 
-header.header-scrolled{
+header.header-scrolled {
   height: 60px;
 }
 
@@ -189,6 +189,7 @@ header.header-scrolled{
   top: 100%;
   visibility: visible;
 }
+
 .function-wrapper {
   display: flex;
 }
@@ -206,23 +207,23 @@ header.header-scrolled{
 /*--------------------------------------------------------------
 # Sections
 --------------------------------------------------------------*/
-.main-column{
+.main-column {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.section-one{
+.section-one {
   margin-top: 120px;
   margin-left: 20px;
 }
 
-.about{
+.about {
   text-align: center;
 }
 
-.input-box{
+.input-box {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -254,7 +255,7 @@ header.header-scrolled{
 
 
 
-.output-box{
+.output-box {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -266,7 +267,7 @@ header.header-scrolled{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+
 }
 
 .output-buttons-wrapper {
@@ -302,7 +303,7 @@ header.header-scrolled{
 }
 
 .input:focus {
-  outline:none
+  outline: none
 }
 
 
@@ -314,9 +315,9 @@ header.header-scrolled{
   font-size: 16px;
   flex-grow: 1;
   overflow-y: auto;
-} 
+}
 
-.reviews{
+.reviews {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -421,112 +422,113 @@ header.header-scrolled{
 # Reviews
 --------------------------------------------------------------*/
 .testimonials-clean {
-  color:#313437;
-  background-color:#eef4f7;
+  color: #313437;
+  background-color: #eef4f7;
 }
 
 .testimonials-clean p {
-  color:#7d8285;
+  color: #7d8285;
 }
 
 .testimonials-clean h2 {
-  font-weight:bold;
-  margin-bottom:40px;
-  padding-top:40px;
-  color:inherit;
+  font-weight: bold;
+  margin-bottom: 40px;
+  padding-top: 40px;
+  color: inherit;
 }
 
 @media (max-width:767px) {
   .testimonials-clean h2 {
-    margin-bottom:25px;
-    padding-top:25px;
-    font-size:24px;
+    margin-bottom: 25px;
+    padding-top: 25px;
+    font-size: 24px;
   }
 }
 
 .testimonials-clean .intro {
-  font-size:16px;
-  max-width:500px;
-  margin:0 auto;
+  font-size: 16px;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .testimonials-clean .intro p {
-  margin-bottom:0;
+  margin-bottom: 0;
 }
 
 .testimonials-clean .people {
-  padding:50px 0 20px;
+  padding: 50px 0 20px;
 }
 
 .testimonials-clean .item {
-  margin-bottom:32px;
+  margin-bottom: 32px;
 }
 
 @media (min-width:768px) {
   .testimonials-clean .item {
-    height:220px;
+    height: 220px;
   }
 }
 
 .testimonials-clean .item .box {
-  padding:30px;
-  background-color:#fff;
-  position:relative;
+  padding: 30px;
+  background-color: #fff;
+  position: relative;
 }
 
 .testimonials-clean .item .box:after {
-  content:'';
-  position:absolute;
-  left:30px;
-  bottom:-24px;
-  width:0;
-  height:0;
-  border:15px solid transparent;
-  border-width:12px 15px;
-  border-top-color:#fff;
+  content: '';
+  position: absolute;
+  left: 30px;
+  bottom: -24px;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-width: 12px 15px;
+  border-top-color: #fff;
 }
 
 .testimonials-clean .item .author {
-  margin-top:28px;
-  padding-left:25px;
+  margin-top: 28px;
+  padding-left: 25px;
 }
 
 .testimonials-clean .item .name {
-  font-weight:bold;
-  margin-bottom:2px;
-  color:inherit;
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: inherit;
 }
 
 .testimonials-clean .item .title {
-  font-size:13px;
-  color:#9da9ae;
+  font-size: 13px;
+  color: #9da9ae;
 }
 
 .testimonials-clean .item .description {
-  font-size:15px;
-  margin-bottom:0;
+  font-size: 15px;
+  margin-bottom: 0;
 }
+
 /*--------------------------------------------------------------
 # Google Maps
 --------------------------------------------------------------*/
 .google-clean {
-  color:#313437;
-  background-color:#ffffff;
+  color: #313437;
+  background-color: #ffffff;
   padding-bottom: 50px;
 }
 
 .google-clean p {
-  color:#7d8285;
+  color: #7d8285;
 }
 
 .google-clean h2 {
-  font-weight:bold;
-  margin-bottom:40px;
-  padding-top:40px;
-  color:inherit;
+  font-weight: bold;
+  margin-bottom: 40px;
+  padding-top: 40px;
+  color: inherit;
 }
 
-.google-center{
+.google-center {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -550,11 +552,30 @@ footer {
   line-height: 100px;
 }
 
+/* ratting */
 
+body {
+  margin: 40px;
+}
 
+button {
+  cursor: pointer;
+  outline: 0;
+  color: #AAA;
 
+}
 
+.btn:focus {
+  outline: none;
+}
 
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
 
 /* Header styles
 header {
