@@ -1,19 +1,14 @@
+let star_reviews = [];
+
 document.addEventListener('DOMContentLoaded', function () {
-    const like = document.getElementById('like');
-    const dislike = document.getElementById('dislike');
+    const btn = document.getElementById('star-review');
 
-    like.addEventListener("click", function (e) {
-        e.preventDefault();
-        $('.active').removeClass('active');
-        $(this).addClass('active');
-        console.log("like");
-    });
+    btn.addEventListener("click", addStarReview);
 
-    dislike.addEventListener("click", function (e) {
-        e.preventDefault();
-        $('.active').removeClass('active');
-        $(this).addClass('active');
-        console.log("dislike");
-    });
+    console.log(btn);
+
+    function addStarReview() {
+        console.log(star_reviews);
+        star_reviews.push("5");
+    }
 });
-

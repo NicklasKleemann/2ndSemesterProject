@@ -5,8 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const fetch = require('node-fetch');
 const { stringify } = require('querystring')
-var bodyParser = require('body-parser');
-const mongoose = require("mongoose");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/FAQ');
@@ -15,8 +13,6 @@ var captchaRouter = require('./routes/captcha');
 var app = express();
 
 app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/gethomepage', async (req, res) => {
   if (!req.body.captcha)
@@ -73,32 +69,6 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
-
-// Set up mongoose connection
-mongoose.set("strictQuery", false);
-const mongoDB = "mongodb+srv://thomaslunoe:Nuggi2001@cluster0.xsccqqr.mongodb.net/?retryWrites=true&w=majority";
-
-main().catch((err) => console.log(err));
-async function main() {
-  await mongoose.connect(mongoDB);
-}
-
-//schema
-var reviewSchema = new mongoose.Schema({
-  title: String,
-  content: String
-});
-
-var review = mongoose.model("review", reviewSchema);
-
-app.post("/Home", function (req, res) {
-  let newReview = new review({
-    title: req.body.title,
-    content: req.body.content
-  })
-  newReview.save();
-  res.redirect("/Home");
 });
 
 module.exports = app;
