@@ -12,6 +12,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/FAQ');
 var captchaRouter = require('./routes/captcha');
 
+
 var app = express();
 
 app.use(express.json());
@@ -74,24 +75,12 @@ app.use(function (err, req, res, next) {
 });
 
 // Set up mongoose connection
-app.use(bodyParser.urlencoded({ extended: true }));
-mongoose.connect("mongodb+srv://thomaslunoe:Nuggi2001@cluster0.xsccqqr.mongodb.net/?retryWrites=true", { useNewUrlParser: true }, { useUnifiedTopology: true })
+mongoose.set("strictQuery", false);
+const mongoDB = "mongodb+srv://thomaslunoe:Nuggi2001@cluster0.xsccqqr.mongodb.net/?retryWrites=true&w=majority";
 
-//schema
-var reviewSchema = new mongoose.Schema({
-  title: String,
-  content: String
-});
-
-var review = mongoose.model("review", reviewSchema);
-
-app.post("", function (req, res) {
-  let newReview = new review({
-    title: req.body.title,
-    content: req.body.content
-  })
-  newReview.save();
-});
-
+main().catch((err) => console.log(err));
+async function main() {
+  await mongoose.connect(mongoDB);
+}
 
 module.exports = app;

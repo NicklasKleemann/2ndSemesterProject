@@ -1,18 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const like = document.getElementById('like');
-    const dislike = document.getElementById('dislike');
+    var btn1 = document.querySelector('#green');
+    var btn2 = document.querySelector('#red');
 
-    like.addEventListener("click", function (e) {
-        e.preventDefault();
-        $('.active').removeClass('active');
-        $(this).addClass('active');
-        console.log("like");
+    btn1.addEventListener('click', function () {
+
+        if (btn2.classList.contains('red')) {
+            btn2.classList.remove('red');
+        }
+        this.classList.toggle('green');
+
     });
 
-    dislike.addEventListener("click", function (e) {
-        e.preventDefault();
-        $('.active').removeClass('active');
-        $(this).addClass('active');
-        console.log("dislike");
+    btn2.addEventListener('click', function () {
+
+        if (btn1.classList.contains('green')) {
+            btn1.classList.remove('green');
+        }
+        this.classList.toggle('red');
+
     });
 });

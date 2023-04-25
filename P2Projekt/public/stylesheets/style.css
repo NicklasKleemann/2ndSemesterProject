@@ -552,31 +552,29 @@ footer {
   line-height: 100px;
 }
 
-/* Review button styles */
-.rating {
-  display: inline-block;
-  width: 100%;
-  margin-top: 5px;
-  padding-top: 5px;
-  text-align: center;
+/* ratting */
+
+body {
+  margin: 40px;
 }
 
-.like,
-.dislike {
-  display: inline-block;
+button {
   cursor: pointer;
-  margin: 10px;
+  outline: 0;
+  color: #AAA;
+
 }
 
-.dislike:hover,
-.like:hover {
-  color: #2EBDD1;
-  transition: all 0.2s ease-in-out;
-  transform: scale(1.1);
+.btn:focus {
+  outline: none;
 }
 
-.active {
-  color: #2EBDD1;
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
 }
 
 /* Header styles
