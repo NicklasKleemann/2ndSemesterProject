@@ -67,25 +67,9 @@ block content
                 button.button(onClick = 'Helloworld()') Function 2
           
         article(class="reviews")
-          h2.align.center Rate us!
-          p How was your experience?
-          <form class = "container" method="post" action="/Home">
-            <div class="form-group">
-              <input class = "form-control" name="title">
-            </div>
-            <div class="form-group">
-              <textarea class = "form-control" name="content"></textarea>
-            </div>
-            <button>add to mongodb</button>
-          </form>
-            <div class="rating">
-              <div class="like grow">
-                <i type="number" reviewjjj="1" id="like" class="fa fa-thumbs-up fa-3x like" aria-hidden="true"></i>
-              </div>
-              <div class="dislike grow">
-                <i id="dislike"class="fa fa-thumbs-down fa-3x like" aria-hidden="true"></i>
-              </div>
-            </div>
+          h2 Rate us!
+          p Let us know how your experience was with the service
+          button(class='button' onClick = 'Helloworld()') Send
 
       div(class="testimonials-clean")
         div(class="container")
