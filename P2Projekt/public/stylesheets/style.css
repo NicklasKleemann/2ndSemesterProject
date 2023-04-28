@@ -601,6 +601,13 @@ footer {
   transform: scale(1.1);
 }
 
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
 
 /* Header styles
 header {
