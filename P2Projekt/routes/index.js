@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 const review_controller = require('../controllers/reviewController');
-const review_controller = require('../controllers/reviewController');
 
 /* GET home page. */
 router.get('/', async function (req, res, next) {
