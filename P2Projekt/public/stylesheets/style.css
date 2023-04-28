@@ -552,30 +552,55 @@ footer {
   line-height: 100px;
 }
 
-/* ratting */
-
-body {
-  margin: 40px;
+/* reviews */
+.wrapper {
+  width: 180px;
+  height: 80px;
+  background-color: #fff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-button {
+.radio_group {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  position: relative;
+  text-align: center;
+  line-height: 50px;
+  font-size: 40px;
+}
+
+.radio_group input[type="radio"] {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
   cursor: pointer;
-  outline: 0;
-  color: #AAA;
-
 }
 
-.btn:focus {
-  outline: none;
+.radio_group input[type="radio"]+label {
+  color: #95a5a6;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: scale(.8);
 }
 
-.green {
-  color: green;
+.radio_group input[type="radio"]:checked+label {
+  color: #3498db;
+  transform: scale(1.1);
 }
 
-.red {
-  color: red;
-}
 
 /* Header styles
 header {

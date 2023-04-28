@@ -17,8 +17,7 @@ exports.review_create_post = [
         const errors = validationResult(req);
 
         // Create a review object with escaped and trimmed data.
-        const review_instance = new review({ review_text: req.body.review });
-
+        const review_instance = new review({ review_number: req.body.number, review_text: req.body.review });
         if (!errors.isEmpty()) {
             // There are errors. Render the form again with sanitized values/error messages.
             res.render("index", {

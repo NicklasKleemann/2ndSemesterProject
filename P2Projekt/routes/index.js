@@ -7,7 +7,7 @@ router.get('/', async function (req, res, next) {
   res.render('index', { title: 'Electronic Health Record Translaton' });
 });
 
-// POST request for creating Book.
+// POST request for creating review.
 router.post('', review_controller.review_create_post);
 
 module.exports = router;

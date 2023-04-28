@@ -72,11 +72,18 @@ block content
           h2.align.center Rate us!
           p How was your experience?
 
-          form(method='POST' action='')
+          form( method='POST' action='')
             div.form-group
-              i#green.fa.fa-thumbs-up.fa-lg(aria-hidden='true')
-              i#red.fa.fa-thumbs-down.fa-lg(aria-hidden='true')
-              label(for='review')
+              .wrapper
+                .radio_group
+                  input(type='radio' name='number'  value='1')
+                  label(for='number')
+                    i.fa.fa-thumbs-up.fa-3x.like
+                .radio_group
+                  input(type='radio' name='number' value='2')
+                  label(for='number')
+                    i.fa.fa-thumbs-down.fa-3x.like
+              label(for='This does not matter')
               input#name.form-control(type='text', placeholder='I had a great experience' name='review' value=(undefined===review ? '' : review.review_text))
             button.btn.btn-primary(type='submit') Submit
  
