@@ -16,6 +16,12 @@ var captchaRouter = require('./routes/captcha');
 
 var app = express();
 
+app.get('/api_key', (req, res) => {
+  const API_KEY = process.env.OPENAI_API_KEY;
+  res.send(API_KEY);
+})
+
+
 app.use(express.json());
 
 app.post('/gethomepage', async (req, res) => {
@@ -75,6 +81,9 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
+
+
+
 // Set up mongoose connection
 mongoose.set("strictQuery", false);
 const mongoDB = process.env.MONGOOSE_KEY;
@@ -83,5 +92,6 @@ main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
 }
+
 
 module.exports = app;
