@@ -13,8 +13,25 @@ function inputTextNoCPR(){
 }
 
 // Kør localStorage.setItem("openAI", "YOUR_OPENAI_API_KEY"); i developer consolen for at sætte API-keyen
-const API_KEY = localStorage.getItem("openAI");
+/*  const API_KEY = localStorage.getItem("openAI"); */
 
+let API_KEY;
+
+async function getAPIKey() {
+    // Send a GET request to the server to get the API key
+    const response = await fetch("/api_key");
+    
+    // Parse the response text as a string
+    const apiKey = await response.text();
+    
+    // Return the API key
+    return apiKey;
+}
+
+async function init() {
+    API_KEY = await getAPIKey();
+}
+init();
 
 async function chatGPT_API_Completions() {
     //Cache DOM elements to avoid unnecessary DOM traversals
@@ -71,6 +88,8 @@ async function chatGPT_API_Completions() {
             console.error("ERROR: " + error);
         }
     }}
+
+
 
 function removePeriod(json) {
     json.forEach(function (element, index) {
