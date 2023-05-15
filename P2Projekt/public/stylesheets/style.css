@@ -294,7 +294,7 @@ header.header-scrolled {
 
 .input {
   margin-bottom: 10px;
-  width: 500px;
+  width: 800px;
   height: 250px;
   padding-right: 5px;
   font-size: 16px;
@@ -310,8 +310,9 @@ header.header-scrolled {
 
 .output {
   padding-right: 5px;
-  width: 500px;
-  height: 250px;
+  width: 800px;
+  min-height: 250px;
+  height: auto;
   font-size: 16px;
   flex-grow: 1;
   overflow-y: auto;
