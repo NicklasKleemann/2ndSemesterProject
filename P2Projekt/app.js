@@ -7,7 +7,6 @@ var logger = require('morgan');
 const fetch = require('node-fetch');
 const { stringify } = require('querystring')
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/FAQ');
@@ -80,9 +79,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-
-
 
 // Set up mongoose connection
 mongoose.set("strictQuery", false);
