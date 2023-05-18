@@ -22,14 +22,12 @@ block content
           nav(class='navbar')
             ul
               li
-                a(class='nav-link scrollto active' href='#home') Home
-              li
-                a(class='nav-link scrollto' href='#about') About
+                a(class='nav-link scrollto active' href='#top') Home
               li
                 a(class='nav-link scrollto' href='FAQ') FAQ
                 
     main 
-      div(class="main-column")
+      div(class="main-column" id="top")
         article(class="section-one")
           div(class="about")
             h2(id="about") About
@@ -42,7 +40,7 @@ block content
                 textarea.input(class="paste-area-field" id="input-text" placeholder="Input Your EHR here...")
                 button(type="text" class="paste-text-button")
                   <span class="material-icons">content_paste</span>
-            button.button(onclick="chatGPT_API_Completions()") Rephrase
+            button.button(onclick="rephrase()") Rephrase
           div(class="output-wrapper")
             div(class="output-box")
               h5 Rephrased Medical Record
@@ -53,7 +51,7 @@ block content
                     <span class="material-icons">content_copy</span>
                   div(class="copy-message")
             div(class="output-buttons-wrapper")
-                button.button(onClick = 'Helloworld()' id="functions") Regenrate response 
+                button.button(onClick = 'regenerateResponse()' id="functions") Regenrate response 
           
         article(class="review")
           h2.align.center Rate us!

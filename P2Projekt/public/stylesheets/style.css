@@ -216,7 +216,6 @@ header.header-scrolled {
 
 .section-one {
   margin-top: 120px;
-  margin-left: 20px;
 }
 
 .about {
@@ -655,6 +654,7 @@ footer {
 
 .FAQ_section {
   margin-top: 120px;
+  margin-bottom: 60px;
   min-height: 100vh;
   width: 80%;
   display: flex;
