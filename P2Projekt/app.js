@@ -64,75 +64,75 @@ app.post('/gpt3_5/completion', async (req, res) => {
   const record = req.body.record || "";
   console.log(record)
   let systemText = `You're a GPT-based bot designed to enhance the readability and comprehensibility of medical records. The bot takes unstructured medical records as input and produces a refined version that is easier to read and understand. The bot's primary goal is to make medical records more accessible and user-friendly, improving patient outcomes and facilitating communication between healthcare providers. Furthermore if the input medical record does not appear to actually be a medical record, then request user to provide a proper medical record. Also the response has to be in the same language as the medical record provided.`
-  let promt = `Write a detailed explanation of the following medical record for uneducated people. This description must also explain medical methods, techniques, operations, or other treatment options and treatment  courses mentioned in the record. Medical Record: "${record}". The response has to be in the same language as the medical record.`
+  let promt = `Write a detailed explanation of the following medical record for uneducated people. This description must also explain medical methods, techniques, operations, or other treatment options and treatment  courses mentioned in the record. Medical Record: "${record}". The response has to be in the same language as the medical record and it must be written in the same format as the given medical record, and please explain the medical thermonology.`
 
   if (!API_KEY) {
-      res.status(500).json({
-          error: {
-              message: "OpenAI API key not configured correctly"
-          }
-      });
-      return;
+    res.status(500).json({
+      error: {
+        message: "OpenAI API key not configured correctly"
+      }
+    });
+    return;
   }
 
   if (record.trim().length === 0) {
-      res.status(400).json({
-          error: {
-              message: "Please enter a valid health record"
-          }
-      })
-      return;
+    res.status(400).json({
+      error: {
+        message: "Please enter a valid health record"
+      }
+    })
+    return;
   }
 
   try {
-      const messages = [];
+    const messages = [];
 
-      // add the system message
-      const systemMessage = {
-          role: "system",
-          content: systemText
-          };
-          if (systemText.length > 0) {
-              messages.push(systemMessage);
-          }
+    // add the system message
+    const systemMessage = {
+      role: "system",
+      content: systemText
+    };
+    if (systemText.length > 0) {
+      messages.push(systemMessage);
+    }
 
-          // add the user message
-          const inputMessage = {
-          role: "user",
-          content: promt
-          };
-          if (record.length > 0) {
-              messages.push(inputMessage);
-          }
+    // add the user message
+    const inputMessage = {
+      role: "user",
+      content: promt
+    };
+    if (record.length > 0) {
+      messages.push(inputMessage);
+    }
 
-          const response = await fetch('https://api.openai.com/v1/chat/completions', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': 'Bearer ' + API_KEY,
-              },
-              body: JSON.stringify({
-                  "model": "gpt-3.5-turbo",
-                  "messages": messages,
-                  "temperature": 0
-              })
-          });
-          const responseJSON = await response.json()
-        
-          res.status(200).json({ result: responseJSON });
-  } catch(error) {
-      // Consider adjusting the error handling logic for your use case
-      if (error.response) {
-        console.error(error.response.status, error.response.data);
-        res.status(error.response.status).json(error.response.data);
-      } else {
-        console.error(`Error with OpenAI API request: ${error.message}`);
-        res.status(500).json({
-          error: {
-            message: 'An error occurred during your request.',
-          }
-        });
-      }
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + API_KEY,
+      },
+      body: JSON.stringify({
+        "model": "gpt-3.5-turbo",
+        "messages": messages,
+        "temperature": 0
+      })
+    });
+    const responseJSON = await response.json()
+
+    res.status(200).json({ result: responseJSON });
+  } catch (error) {
+    // Consider adjusting the error handling logic for your use case
+    if (error.response) {
+      console.error(error.response.status, error.response.data);
+      res.status(error.response.status).json(error.response.data);
+    } else {
+      console.error(`Error with OpenAI API request: ${error.message}`);
+      res.status(500).json({
+        error: {
+          message: 'An error occurred during your request.',
+        }
+      });
+    }
   }
 })
 
