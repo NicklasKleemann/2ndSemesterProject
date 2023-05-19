@@ -2,6 +2,7 @@ extends layout
 
 block content
   body
+    script(type='text/javascript', src ='/javascripts/popup.js')
     script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js")
     script(src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js")
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js")
@@ -25,6 +26,14 @@ block content
                 a(class='nav-link scrollto active' href='#top') Home
               li
                 a(class='nav-link scrollto' href='FAQ') FAQ
+    
+    <div class="popup">
+      <div class="popup-content">
+          <h1>X</h1>
+          <h2>Concerning your privacy</h2>
+          <p>We don't store any of your data however the API we utilize might, If you want to know more, then visit our <a href="FAQ"> FAQ page</a></p>
+      </div>
+    </div>
                 
     main 
       div(class="main-column" id="top")
@@ -69,7 +78,7 @@ block content
                   label(for='number')
                     <span class="review-thumb material-icons"> thumb_down </span>
               label(for='This does not matter')
-              input#name.form-control(type='text', placeholder='I had a great experience' name='review' value=(undefined===review ? '' : review.review_text))
+              textarea#name.form-control(type='text', placeholder='I had a great experience' name='review' value=(undefined===review ? '' : review.review_text))
               button.button(type='submit') Submit
  
 

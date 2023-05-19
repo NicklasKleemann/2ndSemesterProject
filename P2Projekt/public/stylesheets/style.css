@@ -203,6 +203,66 @@ header.header-scrolled {
     left: -100%;
   }
 }
+/*--------------------------------------------------------------
+# Popup
+--------------------------------------------------------------*/
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.content {
+    padding: 0 5rem;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .3);
+    display: grid;
+    place-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 200ms ease-in-out opacity;
+}
+.popup-content {
+    width: clamp(300px, 90vw, 500px);
+    background-color: #fff;
+    padding: clamp(1.5rem, 100vw, 3rem);
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .5);
+    border-radius: .5em;
+    opacity: 0;
+    transform: translateY(20%);
+    transition: 200ms ease-in-out opacity,
+                200ms ease-in-out transform;
+    position: relative;
+}
+.popup h1 {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+    scale: 0.8;
+}
+
+.popup h1:active {
+    transform: scale(.9);
+}
+
+.showPopup {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+    z-index: 100;
+}
+
 
 /*--------------------------------------------------------------
 # Sections
@@ -510,6 +570,7 @@ header.header-scrolled {
 
 #name.form-control {
   margin: 0px 12px 12px 12px;
+  width: 400px
 }
 
 .testimonials-clean {
@@ -604,7 +665,7 @@ header.header-scrolled {
 --------------------------------------------------------------*/
 .google-clean {
   color: #313437;
-  background-color: #ffffff;
+  background-color: #efeef7;
   padding-bottom: 50px;
 }
 
