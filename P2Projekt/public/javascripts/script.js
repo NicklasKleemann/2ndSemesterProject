@@ -53,37 +53,20 @@ async function chatGPT_API_Completions(inputText, promt) {
             body: JSON.stringify({ record: inputText, promt: promt }),
         });
         const data = await response.json()
+        
+        console.log(data)
 
         if (response.status !== 200) {
             throw data.error || new Error(`Request failled with status ${response.status}`)
         }
+
+        const responseText = data.choices[0].message.content
     
-        typeSentence(createResponse(data.result), responseElem, data, true);
+        typeSentence(responseText, responseElem, data, true);
     } catch (error) {
             console.error(error);
             alert(error.message);
     }          
-}
-
-
-
-function removePeriod(json) {
-    json.forEach(function (element, index) {
-        if (element === ".") {
-            json.splice(index, 1);
-        }
-    });
-    return json;
-}
-
-function createResponse(json) {
-    let response = "";
-    let choices = removePeriod(json.choices);
-    if (choices.length > 0) {
-        response = json.choices[0].message.content
-    }
-
-    return response;
 }
 
 async function typeSentence(sentence, elementReference, data, delay = 30) {
@@ -92,6 +75,7 @@ async function typeSentence(sentence, elementReference, data, delay = 30) {
         sentence += " — Please make sure that your Open AI API Key has been set properly.";
     }
     const letters = sentence.split("");
+    console.log(letters)
     let i = 0;
     while (i < letters.length) {
         await waitForMs(delay);

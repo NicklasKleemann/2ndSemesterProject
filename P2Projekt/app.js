@@ -118,8 +118,8 @@ app.post('/gpt3_5/completion', async (req, res) => {
       })
     });
     const responseJSON = await response.json()
-
-    res.status(200).json({ result: responseJSON });
+    
+    res.status(200).json(responseJSON);
   } catch (error) {
     // Consider adjusting the error handling logic for your use case
     if (error.response) {
