@@ -40,7 +40,7 @@ async function chatGPT_API_Completions(inputText, promt) {
     console.log(inputText)
     //Cache DOM elements to avoid unnecessary DOM traversals
     let responseElem = document.getElementById(`output-area`)
-    
+    console.log(responseElem)
     responseElem.innerText = "Working..."
 
     try {
@@ -64,11 +64,14 @@ async function chatGPT_API_Completions(inputText, promt) {
     
         typeSentence(responseText, responseElem, data, true);
     } catch (error) {
-            console.error(error);
-            alert(error.message);
-    }          
+        console.error(error);
+        if (error instanceof Error) {
+            responseElem.innerText = 'Error: ' + error.message;
+        } else {
+            responseElem.innerText = 'Error: ' + error;
+        }
+    } 
 }
-
 async function typeSentence(sentence, elementReference, data, delay = 30) {
     elementReference.innerText = "";
     if (sentence === "HTTP ERROR: 401") {

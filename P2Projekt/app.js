@@ -117,8 +117,13 @@ app.post('/gpt3_5/completion', async (req, res) => {
         "temperature": 0
       })
     });
+
+    if (!response.ok) {
+      throw new Error(`OpenAI API returned an error: ${response.statusText}`);
+    }
+
     const responseJSON = await response.json()
-    
+     
     res.status(200).json(responseJSON);
   } catch (error) {
     // Consider adjusting the error handling logic for your use case
