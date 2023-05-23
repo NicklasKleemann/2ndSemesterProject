@@ -2,8 +2,6 @@
 // captcha.test.js
 const { JSDOM } = require('jsdom')
 const { submitCaptcha } = require('./captcha');
-
-
 const dom = new JSDOM(`<!DOCTYPE html><form id="captchaform"><input id="g-recaptcha-response"></form>`)
 global.document = dom.window.document;
 global.window = dom.window
@@ -32,7 +30,7 @@ describe('submitCaptcha', () => {
   beforeEach(() => {
         fetch.mockClear()
       });
-  test('captcha-box not checked', () => {
+  test("captchaVerified item is set to 'false', if captcha-box is not checked", () => {
     document.querySelector('#g-recaptcha-response').value = false;
     const captcha = document.querySelector('#g-recaptcha-response').value;
 
@@ -62,7 +60,7 @@ describe('submitCaptcha', () => {
 
     
   
-  test('unsuccessful captcha verification', () => {
+  test("captchaVerified item is set to 'false', if captcha  verification was unsuccessful", () => {
     document.querySelector('#g-recaptcha-response').value = true;
     const captcha = document.querySelector('#g-recaptcha-response').value;
 
@@ -89,7 +87,7 @@ describe('submitCaptcha', () => {
         expect(window.sessionStorage.getItem('captchaVerified')).toBe('false');
     });
     });
-  test('successful captcha verification', () => {
+  test("captchaVerified item is set to 'true', if captcha  verification was successful", () => {
     document.querySelector('#g-recaptcha-response').value = true;
     const captcha = document.querySelector('#g-recaptcha-response').value;
 
