@@ -26,23 +26,8 @@ async function openAIHandler(req, res, API_KEY) {
   try {
     const messages = [];
 
-    // add the system message
-    const systemMessage = {
-      role: "system",
-      content: systemText
-    };
-    if (systemText.length > 0) {
-      messages.push(systemMessage);
-    }
-
-    // add the user message
-    const inputMessage = {
-      role: "user",
-      content: promt
-    };
-    if (record.length > 0) {
-      messages.push(inputMessage);
-    }
+    messages.push({ role: "system", content: systemText });
+    messages.push({ role: "user", content: promt });
 
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',

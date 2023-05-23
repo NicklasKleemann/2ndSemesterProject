@@ -74,7 +74,6 @@ app.post('/gpt3_5/completion', async (req, res) => {
     });
     return;
   }
-
   if (record.trim().length === 0) {
     res.status(400).json({
       error: {
@@ -87,23 +86,8 @@ app.post('/gpt3_5/completion', async (req, res) => {
   try {
     const messages = [];
 
-    // add the system message
-    const systemMessage = {
-      role: "system",
-      content: systemText
-    };
-    if (systemText.length > 0) {
-      messages.push(systemMessage);
-    }
-
-    // add the user message
-    const inputMessage = {
-      role: "user",
-      content: promt
-    };
-    if (record.length > 0) {
-      messages.push(inputMessage);
-    }
+    messages.push({ role: "system", content: systemText });
+    messages.push({ role: "user", content: promt });
 
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
