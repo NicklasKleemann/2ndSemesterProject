@@ -22,7 +22,7 @@ app.post('/gethomepage', async (req, res) => {
     return res.json({ success: false, msg: 'Please select captcha' });
 
   // Secret key
-  const secretKey = '6LdpvDEUAAAAAHszsgB_nnal29BIKDsxwAqEbZzU';
+  const secretKey = process.env.CAPTCHA_KEY;
 
   // Verify URL
   const query = stringify({
@@ -64,7 +64,7 @@ app.post('/gpt3_5/completion', async (req, res) => {
   const record = req.body.record || "";
   let systemText = `You're a GPT-based bot designed to enhance the readability and comprehensibility of medical records. The bot takes unstructured medical records as input and produces a refined version that is easier to read and understand. The bot's primary goal is to make medical records more accessible and user-friendly, improving patient outcomes and facilitating communication between healthcare providers. Furthermore if the input medical record does not appear to actually be a medical record, then request user to provide a proper medical record. Also the response has to be in the same language as the medical record provided.`
   let promt = req.body.promt
-  
+
 
   if (!API_KEY) {
     res.status(500).json({
@@ -123,7 +123,7 @@ app.post('/gpt3_5/completion', async (req, res) => {
     }
 
     const responseJSON = await response.json()
-     
+
     res.status(200).json(responseJSON);
   } catch (error) {
     // Consider adjusting the error handling logic for your use case
