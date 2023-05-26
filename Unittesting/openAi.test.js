@@ -42,7 +42,7 @@ describe('openAIHandler', () => {
     });
   });
 
-  test('returns an error if an empty or invalid record is provided', async () => {
+  test('returns an error if an empty record is provided', async () => {
     req.body.record = "";
 
     await openAIHandler(req, res, mockAPIKey);
