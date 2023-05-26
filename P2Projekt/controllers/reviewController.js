@@ -35,13 +35,3 @@ exports.review_create_post = [
     }),
 ];
 
-exports.get_positive_reviews = [
-    asyncHandler(async (req, res, next) => {
-        const allPositiveReviews = await review.find().sort({ review_number: 1 }).limit(3).exec();
-        res.render("positive_review_list", {
-            title: "Reviews",
-            Positive_reviews: allPositiveReviews.review_text,
-        });
-    })
-
-]
