@@ -57,11 +57,8 @@ async function chatGPT_API_Completions(inputText, promt) {
         typeSentence(responseText, responseElem, data, true);
     } catch (error) {
         console.error(error);
-        if (error instanceof Error) {
-            responseElem.innerText = 'Error: ' + error.message;
-        } else {
-            responseElem.innerText = 'Error: ' + error;
-        }
+        console.error(error);
+        responseElem.innerText = 'Error: ' + error.message;
     } 
 }
 async function typeSentence(sentence, elementReference, data, delay = 30) {

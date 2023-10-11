@@ -69,7 +69,7 @@ app.post('/gpt3_5/completion', async (req, res) => {
   if (!API_KEY) {
     res.status(500).json({
       error: {
-        message: "OpenAI API key not configured correctly"
+        message: "OpenAI API key is not configured"
       }
     });
     return;
@@ -120,7 +120,7 @@ app.post('/gpt3_5/completion', async (req, res) => {
       console.error(`Error with OpenAI API request: ${error.message}`);
       res.status(500).json({
         error: {
-          message: 'An error occurred during your request.',
+          message: 'Your API key is not valid',
         }
       });
     }
@@ -145,7 +145,7 @@ app.use(function (err, req, res, next) {
 
 // Set up mongoose connection
 mongoose.set("strictQuery", false);
-const mongoDB = process.env.MONGOOSE_KEY;
+const mongoDB = process.env.MONGO_KEY;
 
 main().catch((err) => console.log(err));
 async function main() {
