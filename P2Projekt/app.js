@@ -60,10 +60,10 @@ app.use('/FAQ', usersRouter);
 
 app.post('/gpt3_5/completion', async (req, res) => {
   const API_KEY = process.env.OPENAI_API_KEY
-  console.log("Hello im in the handler")
   const record = req.body.record || "";
-  let systemText = `You're a GPT-based bot designed to enhance the readability and comprehensibility of medical records. The bot takes unstructured medical records as input and produces a refined version that is easier to read and understand. The bot's primary goal is to make medical records more accessible and user-friendly, improving patient outcomes and facilitating communication between healthcare providers. Furthermore if the input medical record does not appear to actually be a medical record, then request user to provide a proper medical record. Also the response has to be in the same language as the medical record provided.`
-  let promt = req.body.promt
+  console.log(record)
+  let systemText = `You're a GPT-based bot designed to enhance the readability and comprehensibility of medical records. The bot takes unstructured medical records as input and produces a refined version that is easier to read and understand. The bot's primary goal is to make medical records more accessible and user-friendly, improving patient outcomes and facilitating communication between healthcare providers. The response has to be in the same language as the medical record provided.`
+  let promt = req.body.promt 
 
 
   if (!API_KEY) {
@@ -88,6 +88,7 @@ app.post('/gpt3_5/completion', async (req, res) => {
 
     messages.push({ role: "system", content: systemText });
     messages.push({ role: "user", content: promt });
+    console.log(messages)
 
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -107,6 +108,7 @@ app.post('/gpt3_5/completion', async (req, res) => {
     }
 
     const responseJSON = await response.json()
+    
 
     res.status(200).json(responseJSON);
   } catch (error) {
